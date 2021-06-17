@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바 스크립트 과제</title>
+</head>
+<body>
+    <script>
+
+        'use strict';
+        let rand1 = Math.floor(Math.random()*6) + 1;
+
+        while(true){
+            let num = Number(prompt('주사위 숫자를 맞춰보세요.(1~6)'));
+            if(num == rand1){
+                console.log(`맞췄습니다. ${rand1}입니다. 게임을 종료합니다.`);
+                break;
+            }else{
+                console.log('틀렸습니다.');
+            }
+        }
+
+       let rand2=0;
+        let computer="";
+        let user="";
+        while(true){
+
+             rand2 = (Math.random()*3)+1;
+             computer=0;
+              if( rand2 == 1){
+                computer = "가위";
+              }else if(rand2 ==2){
+               computer="바위";
+              }else{computer="보";}
+
+           while(true){
+            user = prompt('가위, 바위, 보 중 하나를 입력하세요.')
+            if(user=='가위'){
+                break;
+            }else if(user=='바위'){
+                break;
+            }else if(user=="보"){
+                break;
+            }else{
+                console.log('가위, 바위, 보만 입력하십시오.');
+            }
+           }
+            if(user=='가위'){
+                if(computer=='가위'){
+                    console.log(`컴퓨터 : 가위, 유저: 가위 비겼습니다.`);
+                }else if(computer=='바위'){
+                    console.log(`컴퓨터 : 바위, 유저: 가위 졌습니다.`);
+                }else{
+                    console.log(`컴퓨터 : 보, 유저: 가위 이겼습니다.`);
+                    break;
+                }
+            }
+
+            else if(user=='바위'){
+                if(computer=='가위'){
+                    console.log(`컴퓨터 : 가위, 유저: 바위 이겼습니다.`);
+                    break;
+                }else if(computer=='바위'){
+                    console.log(`컴퓨터 : 바위, 유저: 바위 비겼습니다.`);
+                }else{
+                    console.log(`컴퓨터 : 보, 유저: 바위 졌습니다.`);
+                }
+            }
+            
+            else{
+                if(computer=='가위'){
+                    console.log(`컴퓨터 : 가위, 유저: 보 졌습니다.`);
+                }else if(computer=='바위'){
+                    console.log(`컴퓨터 : 바위, 유저: 보 이겼습니다.`);
+                    break;
+                }else{
+                    console.log(`컴퓨터 : 보, 유저: 보 비겼습니다.`);
+                }
+            }
+        }
+
+        let arr = new Array;
+        let cnt;
+        let rand3;
+        let check;
+        for(cnt=0 ; cnt<7; cnt++ ){
+            rand3 = Math.floor((Math.random()*45))+1;
+            for(let i of arr){
+                if(i==rand3){
+                    check=true;
+                }
+            }
+            if(check==true){
+                cnt--;
+            }else{
+                arr.push(rand3);
+            }
+        }
+        
+        console.log("로또번호는");
+        for(let i in arr){
+            if(Number(i)==6){
+                console.log(` 보너스 번호는 ${arr[6]}입니다.`);
+                break;
+            }
+            console.log(`${Number(
+                i)+1}번째 번호는 ${arr[Number(i)]} `);
+           
+        }
+
+    
+    </script>
+</body>
+</html>
